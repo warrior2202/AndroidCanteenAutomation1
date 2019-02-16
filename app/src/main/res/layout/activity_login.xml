@@ -4,43 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginback"
     tools:context=".Activities.Login.Login">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Canteen app"
+        android:text="Canteen Automation System"
         android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:id="@+id/Title_id_login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:textSize="50dp"/>
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/Title_id_login"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/Login_number"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="-32dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_phone_black_24dp" />
+
 
     <EditText
+        android:id="@+id/Login_number"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:id="@+id/Login_number"
-        android:inputType="number"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
 
-        />
+        android:hint="Phone Number"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/colorText"
+        android:textIsSelectable="false" />
+
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/Login_password"
         android:inputType="textPassword"
+        android:hint="Password"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:layout_below="@id/Login_number"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
 
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Login "
+        android:text="Sign In"
         android:id="@+id/Login_Button"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         android:layout_centerVertical="true"
+        android:background="@drawable/buttonbagroundpink"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/Login_password"/>
 

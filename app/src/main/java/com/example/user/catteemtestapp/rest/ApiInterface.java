@@ -1,8 +1,8 @@
 package com.example.user.catteemtestapp.rest;
 
+import com.example.user.catteemtestapp.Activities.Login.loginpogo;
 import com.example.user.catteemtestapp.Model.CategoriesPogo;
 import com.example.user.catteemtestapp.Model.Foodpogo;
-import com.example.user.catteemtestapp.Model.LoginRespone;
 
 import java.util.List;
 
@@ -20,16 +20,17 @@ public interface ApiInterface {
 
     @GET("food_item_api.php?")
     Call<List<Foodpogo>> food (@Query( "category_id") String category_id);
-
-
-
-
-
-
-
     @FormUrlEncoded
-    @POST("user_login_api")
-    Call<LoginRespone> userLogin(
-            @Field("user_email") String email,
-            @Field("user_password") String password);
+    @POST("user_login_api.php")
+    Call<List<loginpogo>> login (
+            @Field( "user_contact") String contact,
+            @Field( "user_password") String password
+    );
+
+
+
+
+
+
+
 }

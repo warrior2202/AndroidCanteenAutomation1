@@ -8,11 +8,27 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DetailSingleItem"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".wallet"></activity>
+        <activity android:name=".Activities.splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.DetailSingleItem.detailsorder" />
         <activity android:name=".Activities.FoodList.DetailsFoodList" />
+        <activity android:name=".Activities.Addtocart.CartActivity" />
+        <activity
+            android:name=".Activities.Addtocart.ItemDetailsActivity"
+            android:isScrollContainer="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".Activities.Login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +38,7 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme1" />
     </application>
 
 </manifest>

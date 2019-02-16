@@ -29,7 +29,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.Myviewholder> 
     public Myviewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from( viewGroup.getContext() ).inflate( R.layout.single_menu_item ,viewGroup,false);
         Myviewholder myviewholder = new Myviewholder( view );
-
         return myviewholder;
     }
 
@@ -40,7 +39,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.Myviewholder> 
         String imagerl = categoriesPogo.get( i ).getCm_cat_image();
         Glide.with( context ).load( imagerl ).into( imageview );
         textView.setText( categoriesPogo.get( i ).getCm_cat_name());
-
     }
 
     @Override

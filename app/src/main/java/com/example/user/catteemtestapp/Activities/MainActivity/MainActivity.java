@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,13 +20,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.TextView;
 
+import com.example.user.catteemtestapp.Activities.Addtocart.CartActivity;
+import com.example.user.catteemtestapp.Activities.Addtocart.ItemDetailsActivity;
 import com.example.user.catteemtestapp.Activities.FoodList.DetailsFoodList;
+import com.example.user.catteemtestapp.Activities.Login.Login;
 import com.example.user.catteemtestapp.Fragments.MenuFragment;
 import com.example.user.catteemtestapp.Model.CategoriesPogo;
 import com.example.user.catteemtestapp.R;
 import com.example.user.catteemtestapp.rest.ApiClient;
 import com.example.user.catteemtestapp.rest.ApiInterface;
+import com.example.user.catteemtestapp.wallet;
 
 import java.util.List;
 
@@ -39,14 +46,23 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private ProgressDialog pDialog;
     private RecyclerView.LayoutManager layoutManager;
+    private TextView textView;
+    public static String wallet;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        wallet = getIntent().getStringExtra( "wallet" );
         Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
+        MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.Fraagment_frame_Layout, MenuFragment.newInstance()).commit();
+
+        String name = getIntent().getStringExtra( "nameuser" );
+
+//        textView.setText( "MANAN SHAH" );
 //        recyclerView = findViewById( R.id.recycler_menu );
 //        recyclerView.setHasFixedSize( true );
 //        layoutManager = new GridLayoutManager( MainActivity.this,1 );
@@ -56,24 +72,32 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
-        fab.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make( view, "Replace with your own action", Snackbar.LENGTH_LONG )
-                        .setAction( "Action", null ).show();
-            }
-        } );
+//        FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
+//        fab.setOnClickListener( new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make( view, "Replace with your own action", Snackbar.LENGTH_LONG )
+//                        .setAction( "Action", null ).show();
+//            }
+//        } );
 
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawer.addDrawerListener( toggle );
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById( R.id.nav_view );
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.Students_name_id);
+        navUsername.setText( getIntent().getStringExtra( "nameuser" ) );
+//        textView = findViewById( R.id.Students_name_id );
+//        String namegh =
+//        textView.setText( "MANAN SHAH" );
+
         navigationView.setNavigationItemSelectedListener( this );
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -100,9 +124,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected( item );
     }
@@ -111,18 +133,28 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
             MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.Fraagment_frame_Layout, MenuFragment.newInstance()).commit();
 
         } else if (id == R.id.nav_cart) {
+            Intent intent = new Intent(MainActivity.this, CartActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_orders) {
 
+
         } else if (id == R.id.nav_wallet) {
+            Intent intent1 = new Intent(MainActivity.this, wallet.class);
+            intent1.putExtra( "wallet1",wallet );
+            startActivity(intent1);
 
         }
 
@@ -174,6 +206,22 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    public void CartIntent(View view) {
+        Intent intent = new Intent(MainActivity.this,CartActivity.class);
+        startActivity(intent);
+    }
+
+    public void opnDrawer(View view)
+    {
+        DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawer.openDrawer(Gravity.START);
+
+
+    }
+
     public interface ClickListener {
         void onClick(View view, int position);
         void onLongClick(View view, int position);

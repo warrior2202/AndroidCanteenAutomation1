@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailSingleItem">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
-</android.support.constraint.ConstraintLayout>
+
+  >
+
+<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    app:corner_radius="20dp"
+    android:background="@color/white"
+    android:layout_margin="8dp"
+    android:elevation="1dp"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+
+        android:layout_height="130dp"
+
+        android:id="@+id/image_list"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/supreme"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_text"
+        android:layout_below="@id/image_list"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/price_lin"
+        android:layout_below="@id/title_text"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:src="@drawable/rupees"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_text"
+        android:text="200"
+        android:id="@+id/price_text"/>
+    </LinearLayout>
+
+    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price_lin"
+        android:layout_centerHorizontal="true"
+        app:corner_radius="10dp"
+        android:layout_marginTop="10dp">
+
+      <ImageButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/add"
+          android:id="@+id/addbutton"
+          android:scaleType="fitXY"
+          android:background="#e5283e"
+          android:layout_centerHorizontal="true"
+          android:layout_below="@id/price_lin"/>
+
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+
+</RelativeLayout>

@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Activities.FoodList.DetailsFoodList">
 
+
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
         android:id="@+id/recycler_food"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

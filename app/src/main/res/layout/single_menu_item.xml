@@ -6,9 +6,8 @@
 
     <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        app:corner_radius="10dp"
+        android:layout_height="270dp"
+
         >
         <ImageView
             android:layout_width="match_parent"
@@ -16,13 +15,16 @@
             android:scaleType="fitXY"
             android:id="@+id/menu_image"/>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:id="@+id/menu_title"
+            android:textSize="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/overlayBackground"/>
+            android:layout_alignParentRight="true"
+            />
     </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
 
 </RelativeLayout>
